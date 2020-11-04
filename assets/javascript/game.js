@@ -46,6 +46,7 @@ $(document).ready(function () {
 
     function guessIsValid(guess) {
 
+        // https://www.w3resource.com/javascript/form/all-letters-field.php
         var letters = /^[A-Za-z]+$/;
         if (guess.match(letters)) {
             return true;
@@ -85,8 +86,6 @@ $(document).ready(function () {
         let isValidGuess = guessIsValid(guess)
 
         if (isValidGuess) {
-
-            // assigns keyboard input to guess variable & changes to lowercase 
             guess = guess.toLowerCase()
             numGuess--
             renderNumGuess()
