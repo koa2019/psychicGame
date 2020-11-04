@@ -26,41 +26,46 @@
 
     <div class="container">
 
-        <div class="jumbotron text-center">Psychic Game</div>
+        <div class="jumbotron mb-1 text-center">
+            <h1>Psychic Game</h1>
+        </div>
 
         <!-- Scores Row -->
-        <div class="row text-center">
+        <div class="row mb-0 scoresRow text-center">
             <div class="col-md">
-                <h4>Wins</h4>
-                <p id="wins"></p>
+                <p class="scoresHeader">Wins</p>
+                <p id="wins" class="scoresTally"></p>
             </div>
             <div class="col-md">
-                <h4>Losses</h4>
-                <p id="loss"></p>
+                <p class="scoresHeader">Losses</p>
+                <p id="loss" class="scoresTally"></p>
             </div>
             <div class="col-md">
-                <h4># of Guesses Left</h4>
-                <p id="numGuess"></p>
+                <p class="scoresHeader"># of Guesses Left</p>
+                <p id="numGuess" class="scoresTally"></p>
             </div>
         </div>
 
-        <!-- user guess row -->
-        <div class="row mt-5 text-center">
-            <div class="col-md-12">
-                    <h1>Your Guess</h1>
-                    <p id="userGuess"></p>
-                    <p id="status"></p>
+        <!-- guesses div -->
+        <div class="row guesses text-center">
+
+            <div class="col-md-9">
+                <div class="correct">
+                    <h1>What Letter Am I thinking of?</h1>
+                    <h1 id="correctLetterText">?</h1>
+                </div>
             </div>
-        </div>
-        <div class="row" id="statusDiv">
-            <div class="col-md-12">
-                <h1 id="status"></h1>
+
+            <!-- wrong guesses -->
+            <div class="col-md-3 wrong ">
+                <h3>Wrong Guesses</h3>
+                <p id="userGuess"></p>
             </div>
-        </div>
+
+        </div> <!-- ends div guesses -->
 
     </div> <!-- ends div container -->
 
-    
 </body>
 
 </html>

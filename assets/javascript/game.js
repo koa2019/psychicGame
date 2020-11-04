@@ -7,7 +7,7 @@ $(document).ready(function () {
     let userGuess = []
     let randLetter = null
     let guess = null
-    const winnerMessage = "Winner Winner Chicken Dinner!"
+    const winnerMessage = " is Correct!"
     let gameOverMessage = "Game Over! You're out of guesses"
 
     // +++++++ FUNCTION DEFINTIONS ++++++++++
@@ -25,17 +25,17 @@ $(document).ready(function () {
     function renderUserGuess() {
         document.querySelector('#userGuess').textContent = userGuess
     }
-
-    // function renders winner message
-    function renderWinnerMessage(){
-        alert(winnerMessage)
+    function renderCorrectGuess() {
+        document.querySelector('#correctLetterText').textContent = guess
     }
-
+    // function renders winner message
+    function renderWinnerMessage() {
+        alert(guess + winnerMessage)
+    }
     // functions renders Game Over message
     function renderGameOverMessage() {
         alert(gameOverMessage)
     }
-
     // function picks random letter from alphabet
     // site: https://www.coderrocketfuel.com/article/generate-a-random-letter-from-the-alphabet-using-javascript
     function getRandomLetter() {
@@ -44,9 +44,22 @@ $(document).ready(function () {
 
     }
 
+    function guessIsValid(guess) {
+
+        var letters = /^[A-Za-z]+$/;
+        if (guess.match(letters)) {
+            return true;
+        }
+        else {
+            alert("Please guess any letter in the alphabet")
+            return false
+        }
+    }
+
     // function resets game, but keeps number of wins & losses
     function resetGame() {
         numGuess = 3
+        guess = "?"
         userGuess = []
         renderWins()
         renderLosses()
@@ -65,18 +78,30 @@ $(document).ready(function () {
     // event listener for a keyboard input from user
     document.onkeyup = function (e) {
 
-        numGuess--
-        renderNumGuess()
 
-        // assigns keyboard input to guess variable
-        guess = e.key.toLowerCase()
+        // assigns keyboard input to guess variable 
+        guess = e.key
 
-        // render user guess to browswer
+        let isValidGuess = guessIsValid(guess)
+
+        if (isValidGuess) {
+
+            // assigns keyboard input to guess variable & changes to lowercase 
+            guess = guess.toLowerCase()
+            numGuess--
+            renderNumGuess()
+        }
+        else {
+            return
+        }
+
+        // render user guess to browser
         userGuess.push(guess)
         console.log(userGuess)
 
         if (guess === randLetter) {
             wins++
+            // renderCorrectGuess()
             renderWinnerMessage()
             renderWins()
             resetGame()

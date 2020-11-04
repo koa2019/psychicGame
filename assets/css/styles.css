@@ -1,0 +1,33 @@
+body {
+   background-color: black;
+   font-size: 14px;
+}
+
+.container {
+   padding: 0;
+   margin: 3em auto;
+   border: 4px solid white;
+   min-height: 500px;
+   background-color: hsl(210, 16%, 93%);
+}
+
+.jumbotron {
+   border-bottom: 2px solid lightgrey;
+   color: white;
+   background-image: url("../images/psychic.png");
+   background-color: black;
+}
+
+.scoresHeader{
+   margin: 0;
+   font-weight: bold;
+   font-size: large;
+}
+.scoresTally{
+   font-weight: 500;
+   font-size: large;
+}
+
+.guesses {
+   margin-top: 1.5em;
+}
